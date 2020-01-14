@@ -1,0 +1,17 @@
+.demo-card-square.mdl-card {
+  margin: 100px auto;
+  width: 400px;
+}
+
+.demo-card-square > .mdl-card__title {
+  color: white;
+  background-color: teal;
+}
+
+.demo-list-control {
+  margin: 0px 20px;
+}
+
+.deleteButton {
+  background-color: #FF6388;
+}
