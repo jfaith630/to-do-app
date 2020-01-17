@@ -1,5 +1,6 @@
 function onReady() {
   let toDos = [];
+  toDos = JSON.parse(window.localStorage.getItem('user'));
   let id = 0;
   const addToDoForm = document.getElementById('addToDoForm');
   function createNewToDo() {
@@ -21,6 +22,13 @@ function onReady() {
       const newLi = document.createElement('li');
       const checkbox = document.createElement('input');
       checkbox.type = "checkbox";
+      checkbox.addEventListener('change', event => {
+        if(this.checked) {
+          toDo.complete = true;
+        } else {
+          toDo.complete = false;
+        }
+      });
       const deleteBtn = document.createElement('button');
       deleteBtn.textContent = "Delete";
       deleteBtn.addEventListener('click', event => {
@@ -33,6 +41,7 @@ function onReady() {
       toDoList.appendChild(newLi);
       newLi.appendChild(checkbox);
       newLi.appendChild(deleteBtn);
+      window.localStorage.setItem('user', JSON.stringify(toDos));
     });
   }
   addToDoForm.addEventListener('submit', event => {
